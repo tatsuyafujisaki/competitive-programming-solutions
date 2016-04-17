@@ -6,9 +6,10 @@ Past problems|https://code.google.com/codejam/contests.html
 ###### Topcoder
 Name|URL
 ---|---
-Tutorials|https://www.topcoder.com/community/data-science/data-science-tutorials
-Forums|http://apps.topcoder.com/forums
 Web arena|https://arena.topcoder.com
+Forums|http://apps.topcoder.com/forums
+Tutorials|https://www.topcoder.com/community/data-science/data-science-tutorials
+Practice room|https://community.topcoder.com/tc?module=Static&d1=help&d2=pracArena
 
 ###### Codeforces
 Name|URL
