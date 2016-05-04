@@ -5,24 +5,24 @@ public class GerrymanderEasy
         long n = A.Length;
         var maxRatio = 0.0;
 
-        for (var startIndex = 0; startIndex < n; startIndex++)
+        for (var i = 0; i < n; i++)
         {
-            for (var k = K; startIndex + k <= n; k++)
+            var denominator = 0.0;
+            var numerator = 0.0;
+
+            for (var j = i; j < n; j++)
             {
-                var denominator = 0.0;
-                var numerator = 0.0;
+                numerator += B[j];
+                denominator += A[j];
 
-                for (var i = startIndex; i < startIndex + k; i++)
+                if (K <= j - i + 1)
                 {
-                    numerator += B[i];
-                    denominator += A[i];
-                }
+                    var ratio = numerator / denominator;
 
-                var ratio = numerator / denominator;
-
-                if (maxRatio < ratio)
-                {
-                    maxRatio = ratio;
+                    if (maxRatio < ratio)
+                    {
+                        maxRatio = ratio;
+                    }
                 }
             }
         }
