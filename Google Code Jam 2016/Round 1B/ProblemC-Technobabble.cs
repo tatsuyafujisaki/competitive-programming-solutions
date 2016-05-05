@@ -131,8 +131,8 @@ namespace Gcj
         }
 
         private static int ModifiedHopcroftKarp(HashSet<string> lefts,
-                                                               IEnumerable<string> rights,
-                                                               IReadOnlyDictionary<string, HashSet<string>> edges)
+                                                IEnumerable<string> rights,
+                                                IReadOnlyDictionary<string, HashSet<string>> edges)
         {
             var distances = new Dictionary<string, long>();
             var q = new Queue<string>();
