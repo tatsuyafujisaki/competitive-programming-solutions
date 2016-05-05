@@ -148,16 +148,6 @@ namespace Gcj
                 }
             }
 
-            // Normally, return matches by uncommenting the following.
-            // // Remove unmatches
-            // foreach (var kvp in toMatchedRight.Where(kvp => kvp.Value == "").ToList())
-            // {
-            //     toMatchedRight.Remove(kvp.Key);
-            // }
-            // // Return matches
-            // return toMatchedRight;
-
-            // This time, return the number of unmatched rights.
             return toMatchedLeft.Count(kvp => kvp.Value == "");
         }
     }
