@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -13,15 +12,15 @@ namespace Gcj
             const string outputFile = @"output.txt";
 
             var xs = File.ReadLines(inputFile).ToList();
-            var n = int.Parse(xs[0]);
-            var s = xs.GetRange(1, n).ToList();
+            var t = int.Parse(xs[0]);
+            var s = xs.GetRange(1, t).ToList();
 
-            var result = new List<string>();
+            var result = new string[t];
 
-            for (var i = 0; i < n; i++)
+            for (var ti = 0; ti < t; ti++)
             {
-                var groupedHeight = 1 + CountSubstring(s[i], "-\\+") + CountSubstring(s[i], "\\+-");
-                result.Add($"Case #{i + 1}: {(s[i].EndsWith("-") ? groupedHeight : groupedHeight - 1)}");
+                var groupedHeight = 1 + CountSubstring(s[ti], "-\\+") + CountSubstring(s[ti], "\\+-");
+                result[ti] = $"Case #{ti + 1}: {(s[ti].EndsWith("-") ? groupedHeight : groupedHeight - 1)}";
             }
 
             File.WriteAllLines(outputFile, result);

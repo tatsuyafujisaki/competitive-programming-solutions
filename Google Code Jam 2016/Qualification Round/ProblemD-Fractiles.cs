@@ -18,18 +18,18 @@ namespace Gcj
             lines = lines.Skip(1).ToList();
 
             var tiles = new List<long>();
-            var result = new List<string>();
+            var result = new string[t];
 
-            for (var i = 0; i < t; i++)
+            for (var ti = 0; ti < t; ti++)
             {
-                var xs = lines[i].Split().Select(long.Parse).ToList();
+                var xs = lines[ti].Split().Select(long.Parse).ToList();
                 var k = xs[0];
                 var c = xs[1];
                 var s = xs[2];
 
                 if (s * c < k)
                 {
-                    result.Add($"Case #{i + 1}: IMPOSSIBLE");
+                    result[ti] = $"Case #{ti + 1}: IMPOSSIBLE";
                     continue;
                 }
 
@@ -46,7 +46,7 @@ namespace Gcj
                     tiles.Add(p);
                 }
 
-                result.Add($"Case #{i + 1}: {string.Join(" ", tiles)}");
+                result[ti] = $"Case #{ti + 1}: {string.Join(" ", tiles)}";
             }
 
             File.WriteAllLines(outputFile, result);
