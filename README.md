@@ -2,6 +2,7 @@
 Name|URL
 ---|---
 Past problems|https://code.google.com/codejam/contests.html
+uDebug|https://www.udebug.com/GCJ
 
 ###### Topcoder
 Name|URL
