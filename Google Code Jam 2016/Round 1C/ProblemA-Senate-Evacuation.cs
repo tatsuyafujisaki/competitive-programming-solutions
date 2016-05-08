@@ -14,13 +14,11 @@ namespace Gcj
             var lines = File.ReadLines(inputFile).ToList();
             var t = int.Parse(lines[0]);
 
-            lines = lines.Skip(1).ToList();
-
-            var result = new List<string>(t);
+            var result = new string[t];
 
             for (var ti = 0; ti < t; ti++)
             {
-                var ps = lines[1].Split().Select(long.Parse).ToList();
+                var ps = lines[2 + 2 * ti].Split().Select(long.Parse).ToList();
 
                 var evacuees = new List<string>();
 
@@ -36,9 +34,7 @@ namespace Gcj
 
                 evacuees.Add(Pop(ps) + Pop(ps));
 
-                result.Add($"Case #{ti + 1}: {string.Join(" ", evacuees)}");
-
-                lines = lines.Skip(2).ToList();
+                result[ti] = $"Case #{ti + 1}: {string.Join(" ", evacuees)}";
             }
 
             File.WriteAllLines(outputFile, result);
