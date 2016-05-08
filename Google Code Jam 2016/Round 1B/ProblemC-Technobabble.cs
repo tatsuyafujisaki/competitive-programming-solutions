@@ -14,12 +14,12 @@ namespace Gcj
             var lines = File.ReadLines(inputFile).ToList();
             var t = long.Parse(lines[0]);
 
-            lines = lines.Skip(1).ToList();
-
-            var result = new List<string>();
             var firsts = new HashSet<string>();
             var seconds = new HashSet<string>();
             var edges = new Dictionary<string, HashSet<string>>();
+            var result = new string[t];
+
+            var offset = 1;
 
             for (var ti = 0; ti < t; ti++)
             {
@@ -27,11 +27,11 @@ namespace Gcj
                 seconds.Clear();
                 edges.Clear();
 
-                var n = int.Parse(lines[0]);
+                var n = int.Parse(lines[offset]);
 
                 for (var i = 0; i < n; i++)
                 {
-                    var xs = lines[i + 1].Split();
+                    var xs = lines[offset + 1 + i].Split();
 
                     var first = xs[0];
                     var second = xs[1];
@@ -49,9 +49,9 @@ namespace Gcj
                     }
                 }
 
-                result.Add($"Case #{ti + 1}: {n - (firsts.Count + ModifiedHopcroftKarp(firsts, seconds, edges))}");
+                result[ti] = $"Case #{ti + 1}: {n - (firsts.Count + ModifiedHopcroftKarp(firsts, seconds, edges))}";
 
-                lines = lines.Skip(1 + n).ToList();
+                offset += 1 + n;
             }
 
             File.WriteAllLines(outputFile, result);

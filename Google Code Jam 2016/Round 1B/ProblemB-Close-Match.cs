@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,13 +16,13 @@ namespace Gcj
             const string outputFile = @"output.txt";
 
             var lines = File.ReadLines(inputFile).ToList();
-            var tn = long.Parse(lines[0]);
+            var t = long.Parse(lines[0]);
 
             lines = lines.Skip(1).ToList();
 
-            var result = new List<string>();
+            var result = new string[t];
 
-            for (var ti = 0; ti < tn; ti++)
+            for (var ti = 0; ti < t; ti++)
             {
                 var xs = lines[ti].Split().ToList();
                 var c = new StringBuilder(xs[0]);
@@ -94,7 +93,7 @@ namespace Gcj
 
                 UpdateMinDiffAndAnswer(c.ToString(), j.ToString());
 
-                result.Add($"Case #{ti + 1}: {_answer}");
+                result[ti] = $"Case #{ti + 1}: {_answer}";
             }
 
             File.WriteAllLines(outputFile, result);

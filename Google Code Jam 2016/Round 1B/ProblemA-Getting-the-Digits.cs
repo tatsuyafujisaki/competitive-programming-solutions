@@ -24,17 +24,17 @@ namespace Gcj
             const string outputFile = @"output.txt";
 
             var lines = File.ReadLines(inputFile).ToList();
-            var n = int.Parse(lines[0]);
+            var t = int.Parse(lines[0]);
 
             lines = lines.Skip(1).ToList();
 
-            var result = new List<string>();
+            var result = new string[t];
 
-            for (var i = 0; i < n; i++)
+            for (var ti = 0; ti < t; ti++)
             {
                 var numbers = new List<int>();
 
-                var s = lines[i];
+                var s = lines[ti];
 
                 while (s != "")
                 {
@@ -118,7 +118,7 @@ namespace Gcj
 
                 numbers.Sort();
 
-                result.Add($"Case #{i + 1}: {string.Join("", numbers)}");
+                result[ti] = $"Case #{ti + 1}: {string.Join("", numbers)}";
             }
 
             File.WriteAllLines(outputFile, result);
