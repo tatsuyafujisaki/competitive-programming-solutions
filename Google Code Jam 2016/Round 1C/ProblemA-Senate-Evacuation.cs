@@ -14,13 +14,14 @@ namespace Gcj
             var lines = File.ReadLines(inputFile).ToList();
             var t = int.Parse(lines[0]);
 
+            var evacuees = new List<string>();
             var result = new string[t];
 
             for (var ti = 0; ti < t; ti++)
             {
                 var ps = lines[2 + 2 * ti].Split().Select(long.Parse).ToList();
 
-                var evacuees = new List<string>();
+                evacuees.Clear();
 
                 while (3 < ps.Sum())
                 {
