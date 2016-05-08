@@ -15,7 +15,7 @@ namespace Gcj
             var t = int.Parse(xs[0]);
             var ns = xs.GetRange(1, t).Select(long.Parse).ToList();
 
-            var result = new List<string>();
+            var result = new string[t];
 
             for (var ti = 0; ti < t; ti++)
             {
@@ -44,7 +44,7 @@ namespace Gcj
                     }
                 }
 
-                result.Add($"Case #{ti + 1}: {result2}");
+                result[ti] = $"Case #{ti + 1}: {result2}";
             }
 
             File.WriteAllLines(outputFile, result);
