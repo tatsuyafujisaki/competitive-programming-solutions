@@ -31,7 +31,7 @@ namespace Gcj
 
                     var r = int.Parse(lines[0].Split()[0]);
 
-                    Fill(new CharGrid(lines.Skip(1).Take(r).ToList())).Write(sw);
+                    Fill(new CharGrid(lines.GetRange(1, r).ToList())).Write(sw);
 
                     lines = lines.Skip(1 + r).ToList();
                 }
