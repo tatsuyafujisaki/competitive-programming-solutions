@@ -76,7 +76,7 @@ namespace Gcj
             }
         }
 
-        static (T a, T b) GetTwo<T>(IReadOnlyList<T> xs)
+        static (long, long) GetTwo(IReadOnlyList<long> xs)
         {
             return (xs[0], xs[1]);
         }
