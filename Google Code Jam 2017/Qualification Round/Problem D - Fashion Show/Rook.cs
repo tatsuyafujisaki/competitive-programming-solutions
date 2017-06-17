@@ -3,7 +3,7 @@
     static class Rook
     {
         const char RookSign = 'x';
-        const char RookPower = '!';
+        const char RookControl = '!';
         const char BlankSign = '*';
 
         internal static bool[,] GetRooksWithExtra(char[,] rookMatrix)
@@ -57,12 +57,12 @@
             {
                 if (matrix[rowIndex, i] == BlankSign)
                 {
-                    matrix[rowIndex, i] = RookPower;
+                    matrix[rowIndex, i] = RookControl;
                 }
 
                 if (matrix[i, columnIndex] == BlankSign)
                 {
-                    matrix[i, columnIndex] = RookPower;
+                    matrix[i, columnIndex] = RookControl;
                 }
             }
         }

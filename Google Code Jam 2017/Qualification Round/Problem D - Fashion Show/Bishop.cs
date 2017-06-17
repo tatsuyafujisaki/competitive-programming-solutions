@@ -7,7 +7,7 @@ namespace Gcj
     static class Bishop
     {
         const char BishopSign = '+';
-        const char BishopPower = '!';
+        const char BishopControl = '!';
         const char BlankSign = '*';
 
         internal static bool[,] GetBishopsWithExtra(char[,] bishopMatrix)
@@ -82,11 +82,11 @@ namespace Gcj
 
                     if (mainDiagonalId == GetMainDiagonalId(rowIndex, columnIndex))
                     {
-                        matrix[rowIndex, columnIndex] = BishopPower;
+                        matrix[rowIndex, columnIndex] = BishopControl;
                     }
                     else if (antiDiagonalId == GetAntidiagonalId(rowIndex, columnIndex))
                     {
-                        matrix[rowIndex, columnIndex] = BishopPower;
+                        matrix[rowIndex, columnIndex] = BishopControl;
                     }
                 }
             }
