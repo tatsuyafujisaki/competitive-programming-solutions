@@ -20,7 +20,7 @@ namespace Gcj
                 {
                     if (bishopMatrix[rowIndex, columnIndex] == BishopSign)
                     {
-                        FillBishopPowers(bishopMatrix, GetMainDiagonalId(rowIndex, columnIndex), GetAntidiagonalId(rowIndex, columnIndex));
+                        FillBishopControl(bishopMatrix, GetMainDiagonalId(rowIndex, columnIndex), GetAntidiagonalId(rowIndex, columnIndex));
                     }
                 }
             }
@@ -61,13 +61,13 @@ namespace Gcj
 
                 bishopMatrix[rowIndex1, columnIndex1] = BishopSign;
 
-                FillBishopPowers(bishopMatrix, GetMainDiagonalId(rowIndex1, columnIndex1), GetAntidiagonalId(rowIndex1, columnIndex1));
+                FillBishopControl(bishopMatrix, GetMainDiagonalId(rowIndex1, columnIndex1), GetAntidiagonalId(rowIndex1, columnIndex1));
             }
 
             return Matrix.ToBoolMatrix(bishopMatrix, BishopSign);
         }
 
-        static void FillBishopPowers(char[,] matrix, int mainDiagonalId, int antiDiagonalId)
+        static void FillBishopControl(char[,] matrix, int mainDiagonalId, int antiDiagonalId)
         {
             var n = matrix.GetLength(0);
 

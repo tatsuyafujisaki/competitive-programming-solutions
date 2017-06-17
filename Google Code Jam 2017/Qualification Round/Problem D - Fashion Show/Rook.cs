@@ -16,7 +16,7 @@
                 {
                     if (rookMatrix[rowIndex, columnIndex] == RookSign)
                     {
-                        FillRookPowers(rookMatrix, rowIndex, columnIndex);
+                        FillRookControl(rookMatrix, rowIndex, columnIndex);
                     }
                 }
             }
@@ -38,7 +38,7 @@
 
                         isRookAdded = true;
 
-                        FillRookPowers(rookMatrix, rowIndex, columnIndex);
+                        FillRookControl(rookMatrix, rowIndex, columnIndex);
                     }
                 }
 
@@ -51,16 +51,16 @@
             return Matrix.ToBoolMatrix(rookMatrix, RookSign);
         }
 
-        static void FillRookPowers(char[,] matrix, int rowIndex, int columnIndex)
+        static void FillRookControl(char[,] matrix, int rowIndex, int columnIndex)
         {
             for (var i = 0; i < matrix.GetLength(0); i++)
             {
-                if (matrix[rowIndex, i] != RookSign)
+                if (matrix[rowIndex, i] == BlankSign)
                 {
                     matrix[rowIndex, i] = RookPower;
                 }
 
-                if (matrix[i, columnIndex] != RookSign)
+                if (matrix[i, columnIndex] == BlankSign)
                 {
                     matrix[i, columnIndex] = RookPower;
                 }
